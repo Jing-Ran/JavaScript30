@@ -36,7 +36,7 @@ function filterMatches(wordToMatch, cities) {
 }
 
 function numWithCommas(num) {
-  const regex = new RegExp();
+  const regex = new RegExp(/\B(?=(\d{3})+(?!\d))/g);
   return num.toString().replace(regex, ',');
 }
 
@@ -48,10 +48,11 @@ function displayMatches() {
     const regex = new RegExp(this.value, 'gi');
     const hlCityNm = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
     const hlStateNm = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+    const populationWCommas = numWithCommas(place.population);
     return `
       <li>
         <span class="name">${hlCityNm}, ${hlStateNm}</span>
-        <span class="population">${place.population}</span>
+        <span class="population">${populationWCommas}</span>
       </li>
     `;
   }).join('');
