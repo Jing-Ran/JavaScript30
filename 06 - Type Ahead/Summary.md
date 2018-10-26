@@ -22,3 +22,14 @@
       });
     ```
 
+2. REGEX - Lookahead and lookbehind zero-length assertions:
+
+    Lookahead and lookbehind, collectively called "lookaround", are zero-length assertions. Lookaround actually matches characters, but then gives up the match, returning only the result: match or no match.
+    
+    * EX. Negative lookahead
+    
+      To match a "q" not followed by a "u": `q(?!u)`
+      
+    * EX. Positive lookahead
+    
+      To match a "q" that is followed by a "u": `q(?=u)`, without making the u part of the match.
