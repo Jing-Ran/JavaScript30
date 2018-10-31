@@ -13,3 +13,19 @@
     One point I missed is having a variable that marks the starting point and ending point of a selection. Only checkboxes in between the starting point and ending point will be checked. When looping the checkbox list, once hitting the starting point, `inBetween` is `true`. And once hitting the ending point, `inBetween` is set back to `false`.
     
     Two situations: If the starting point is the last checkbox that is clicked, the ending point will be `this` (the one that triggers the `handleCheck` listener). Or the starting point is `this`, and the ending point will be the last clicked checkbox.
+    
+2. Buggy code
+
+    ```
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    ```
+    
+    If check 1 to 3, uncheck 2, then press `shift` and check 2 again, all five checkboxes will be checked.
+    
+    Can't uncheck a group of checkboxes using `shift`.
+    
+    **Update code**:
