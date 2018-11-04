@@ -10,7 +10,7 @@ function handleCheck1(e) {
     let point2 = checkboxesArr.indexOf(prevChecked);
     // console.log('p1 ', point1, point1.checked);
 
-    isChecked = (this.checked || prevChecked.checked) ? true : false;
+    isChecked = (this.checked || prevChecked.checked);
     console.log(isChecked);
 
     // Only loop between point1 and point2
