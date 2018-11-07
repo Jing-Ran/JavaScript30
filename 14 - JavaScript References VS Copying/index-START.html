@@ -8,15 +8,26 @@
 
   <script>
     // start with strings, numbers and booleans
+    let age = 100;
+    let age2 = age;
+    console.log(age, age2);
+    age = 200;
+    console.log(age, age2);
 
-    // Let's say we have an array
+    // Let's say we have an array - reference
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
+    let team = players;
+    console.log(players, team);
 
     // You might think we can just do something like this:
+    // let team2 = players;
+    team[3] = 'Lux';
+    console.log(team);
 
     // however what happens when we update that array?
+    console.log(players);
 
     // now here is the problem!
 
@@ -27,10 +38,16 @@
     // So, how do we fix this? We take a copy instead!
 
     // one way
+    let team2 = players.slice();
 
     // or create a new array and concat the old one in
+    let team3 = [].concat(players);
 
     // or use the new ES6 Spread
+    let team4 = [...players];
+
+    // OR
+    let team5 = Array.from(players);
 
     // now when we update it, the original one isn't changed
 
@@ -39,16 +56,25 @@
     // with Objects
     const person = {
       name: 'Wes Bos',
-      age: 80
+      age: 80,
+      social: {
+        t: `@wes`,
+        f: `wes.box`
+      }
     };
 
     // and think we make a copy:
+    // Object.assign(target, ...sources);
+    const person2 = Object.assign({}, person, { num: 99 });
 
     // how do we take a copy instead?
-
-    // We will hopefully soon see the object ...spread
+ 
+    // object ...spread - New in ECMAScript2018
+    const p1 = {...person};
+    console.log(p1);
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    
 
   </script>
 
