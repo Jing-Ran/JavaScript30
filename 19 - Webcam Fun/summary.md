@@ -40,6 +40,10 @@
     
     `URL.createObjectURL(obj)` is a static method creates a `DOMString` containing a URL representing the obj given in the parameter.
     
+    **UPDATE**: new way
+    
+    Instead of using `video.src = window.URL.createObjectURL(mediaStream);`, now we can do `video.srcObject = mediaStream;`.
+    
 3. `Canvas` imports images
 
     `drawImage(image, x, y[, width, height])` function draws the specified image parameter at the coordinates(x, y). If width and height are specified, the image will be scaled to that size when drawing it onto the canvas.
